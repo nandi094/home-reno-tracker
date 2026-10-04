@@ -36,17 +36,17 @@
     <div id="budgetSection" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Estimated Budget</p>
-        <p id="metricEstimated" class="text-2xl font-bold text-slate-800 mt-1">$0.00</p>
+        <p id="metricEstimated" class="text-2xl font-bold text-slate-800 mt-1">₹0.00</p>
         <p class="text-xs text-slate-400 mt-0.5">Sum of planned allocations</p>
       </div>
       <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Actual Spent</p>
-        <p id="metricActual" class="text-2xl font-bold text-blue-600 mt-1">$0.00</p>
+        <p id="metricActual" class="text-2xl font-bold text-blue-600 mt-1">₹0.00</p>
         <p class="text-xs text-slate-400 mt-0.5">Total recorded expenditures</p>
       </div>
       <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
         <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Budget Variance</p>
-        <p id="metricVariance" class="text-2xl font-bold text-emerald-600 mt-1">$0.00</p>
+        <p id="metricVariance" class="text-2xl font-bold text-emerald-600 mt-1">₹0.00</p>
         <p id="varianceSubtitle" class="text-xs text-slate-400 mt-0.5">Under estimated</p>
       </div>
     </div>
@@ -71,9 +71,17 @@
             <select id="expenseCategory" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white">
               <option value="Materials">Materials</option>
               <option value="Labor">Labor</option>
-              <option value="Fixtures">Fixtures</option>
+              <option value="Decor">Decor</option>
               <option value="Appliances">Appliances</option>
               <option value="Permits">Permits</option>
+              <option value="Civil Work">Civil Work</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Painting">Painting</option>
+              <option value="Kitchen Items">Kitchen Items</option>
+              <option value="Carpentry / Woodwork">Carpentry / Woodwork</option>
+              <option value="Flooring & Tiling">Flooring & Tiling</option>
+              <option value="False Ceiling">False Ceiling</option>
               <option value="Other">Other</option>
             </select>
           </div>
@@ -89,11 +97,11 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
-            <label class="block text-xs font-semibold text-slate-600 mb-1">Estimated Cost ($)</label>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Estimated Cost (₹)</label>
             <input type="number" step="0.01" id="expenseEst" placeholder="0.00" class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
           </div>
           <div>
-            <label class="block text-xs font-semibold text-slate-600 mb-1">Actual Cost ($)</label>
+            <label class="block text-xs font-semibold text-slate-600 mb-1">Actual Cost (₹)</label>
             <input type="number" step="0.01" id="expenseAct" placeholder="0.00" required class="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:outline-none" />
           </div>
           <div>
@@ -127,7 +135,7 @@
                 <th class="p-3">ID</th>
                 <th class="p-3">Description</th>
                 <th class="p-3">Room</th>
-                <th class="p-3">Actual ($)</th>
+                <th class="p-3">Actual (₹)</th>
                 <th class="p-3">Receipt</th>
               </tr>
             </thead>

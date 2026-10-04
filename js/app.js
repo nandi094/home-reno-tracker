@@ -42,19 +42,20 @@ async function loadDashboard() {
 }
 
 function renderMetrics(expenses) {
-  if (user.role === "Contractor") return;
+  if (user.role === "Contractor") return;[cite: 5]
 
-  const totalActual = expenses.reduce((sum, item) => sum + (Number(item.ActualCost) || 0), 0);
-  const totalEstimated = expenses.reduce((sum, item) => sum + (Number(item.EstimatedCost) || 0), 0);
-  const variance = totalEstimated - totalActual;
+  const totalActual = expenses.reduce((sum, item) => sum + (Number(item.ActualCost) || 0), 0);[cite: 5]
+  const totalEstimated = expenses.reduce((sum, item) => sum + (Number(item.EstimatedCost) || 0), 0);[cite: 5]
+  const variance = totalEstimated - totalActual;[cite: 5]
 
-  document.getElementById("metricActual").innerText = `$${totalActual.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  document.getElementById("metricEstimated").innerText = `$${totalEstimated.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  // Uses 'en-IN' to format into lakhs and crores (e.g. ₹1,50,000.00)
+  document.getElementById("metricActual").innerText = `₹${totalActual.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  document.getElementById("metricEstimated").innerText = `₹${totalEstimated.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   
-  const varEl = document.getElementById("metricVariance");
-  varEl.innerText = `$${Math.abs(variance).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  varEl.className = `text-2xl font-bold ${variance >= 0 ? "text-emerald-600" : "text-rose-600"}`;
-  document.getElementById("varianceSubtitle").innerText = variance >= 0 ? "Under estimated" : "Over estimated";
+  const varEl = document.getElementById("metricVariance");[cite: 5]
+  varEl.innerText = `₹${Math.abs(variance).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  varEl.className = `text-2xl font-bold ${variance >= 0 ? "text-emerald-600" : "text-rose-600"}`;[cite: 5]
+  document.getElementById("varianceSubtitle").innerText = variance >= 0 ? "Under estimated" : "Over estimated";[cite: 5]
 }
 
 function renderExpenses(expenses) {
@@ -71,7 +72,7 @@ function renderExpenses(expenses) {
       <td class="p-3 text-xs font-mono text-gray-500">${e.ID || '-'}</td>
       <td class="p-3 font-medium text-gray-900">${e.Description || '-'}</td>
       <td class="p-3 text-sm text-gray-600"><span class="px-2 py-0.5 rounded bg-gray-100 text-gray-700 text-xs">${e.Room || '-'}</span></td>
-      <td class="p-3 font-semibold text-gray-900">$${(Number(e.ActualCost) || 0).toLocaleString(undefined, { minimumFractionDigits: 2 })}</td>
+      <td class="p-3 font-semibold text-gray-900">₹${(Number(e.ActualCost) || 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</td>
       <td class="p-3">
         ${e.ReceiptLink 
           ? `<a href="${e.ReceiptLink}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 hover:text-blue-800 text-xs font-semibold">
