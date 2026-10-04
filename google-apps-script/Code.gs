@@ -4,7 +4,7 @@
 const SPREADSHEET = SpreadsheetApp.getActiveSpreadsheet();
 
 // IMPORTANT: Replace with your Google Drive Folder ID for receipt uploads
-const RECEIPTS_FOLDER_ID = "YOUR_GOOGLE_DRIVE_FOLDER_ID";
+const RECEIPTS_FOLDER_ID = " https://drive.google.com/drive/folders/1BCU_2KtsfeZAzFkQXwEf1ixx7WA-UNak";
 
 function doGet(e) {
   const action = e.parameter.action;
@@ -96,7 +96,7 @@ function doPost(e) {
 }
 
 function saveReceiptToDrive(base64Data, mimeType, originalName, expenseId) {
-  if (!RECEIPTS_FOLDER_ID || RECEIPTS_FOLDER_ID === "YOUR_GOOGLE_DRIVE_FOLDER_ID") {
+  if (!RECEIPTS_FOLDER_ID || RECEIPTS_FOLDER_ID === " https://drive.google.com/drive/folders/1BCU_2KtsfeZAzFkQXwEf1ixx7WA-UNak") {
     throw new Error("RECEIPTS_FOLDER_ID is not configured in Apps Script.");
   }
 
