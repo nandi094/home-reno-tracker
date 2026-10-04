@@ -42,20 +42,20 @@ async function loadDashboard() {
 }
 
 function renderMetrics(expenses) {
-  if (user.role === "Contractor") return;[cite: 5]
+  if (user.role === "Contractor") return; 
 
-  const totalActual = expenses.reduce((sum, item) => sum + (Number(item.ActualCost) || 0), 0);[cite: 5]
-  const totalEstimated = expenses.reduce((sum, item) => sum + (Number(item.EstimatedCost) || 0), 0);[cite: 5]
-  const variance = totalEstimated - totalActual;[cite: 5]
+  const totalActual = expenses.reduce((sum, item) => sum + (Number(item.ActualCost) || 0), 0); 
+  const totalEstimated = expenses.reduce((sum, item) => sum + (Number(item.EstimatedCost) || 0), 0); 
+  const variance = totalEstimated - totalActual; 
 
   // Uses 'en-IN' to format into lakhs and crores (e.g. ₹1,50,000.00)
   document.getElementById("metricActual").innerText = `₹${totalActual.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   document.getElementById("metricEstimated").innerText = `₹${totalEstimated.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   
-  const varEl = document.getElementById("metricVariance");[cite: 5]
+  const varEl = document.getElementById("metricVariance"); 
   varEl.innerText = `₹${Math.abs(variance).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-  varEl.className = `text-2xl font-bold ${variance >= 0 ? "text-emerald-600" : "text-rose-600"}`;[cite: 5]
-  document.getElementById("varianceSubtitle").innerText = variance >= 0 ? "Under estimated" : "Over estimated";[cite: 5]
+  varEl.className = `text-2xl font-bold ${variance >= 0 ? "text-emerald-600" : "text-rose-600"}`; 
+  document.getElementById("varianceSubtitle").innerText = variance >= 0 ? "Under estimated" : "Over estimated"; 
 }
 
 function renderExpenses(expenses) {
