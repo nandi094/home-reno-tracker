@@ -20,13 +20,13 @@ export function setSession(userData, passcode) {
 
 export function logout() {
   localStorage.removeItem(AUTH_KEY);
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 export function requireAuth() {
   const session = getSession();
   if (!session || !session.passcode) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
     return null;
   }
   return session;
